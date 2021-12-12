@@ -17,6 +17,8 @@ public class Member {
         private String contactNumber;
         private String address;
         private String currentLocation;
+        private ArrayList<String> imageUrls;
+        private ArrayList<String> portfolioUrls;
       //  @OneToMany
        // @JoinColumn(name = "Member_ID")
        // private List<Skill> skills;
@@ -28,7 +30,7 @@ public class Member {
        // private ArrayList<LanguagePreference> languagePreference;
         private ArrayList<String> languagePreference;
         private EngagementPreference engagemnetPreference; // FULLTIME PARTTIME WEEKDAYS WEEKENDS DAILY WEEKLY MONTHLY QUARTERLY YEARLY
-        private WorkingOption workingPreference; // HOME ONSITE OFFICE
+        private WorkingOption workingPreference; // REMOTE ONSITE OFFICE
         private Remuneration remunerationPreference; // PAID PROBONO
         private ArrayList<String> locationPreference;
         private Recommendation recommendation;
@@ -42,13 +44,15 @@ public class Member {
             this.registeredOn = new Timestamp(date.getTime());
     }
 
-    public Member(String preferredId, String name, String emailAddress, String contactNumber, String address, String currentLocation, ArrayList<String> skills, ArrayList<String> interests, AgeGroup ageGroup, ArrayList<String> languagePreference, EngagementPreference engagemnetPreference, WorkingOption workingPreference, Remuneration remunerationPreference, ArrayList<String> locationPreference, Recommendation recommendation, SpecialNeed specialneed, boolean openToCollaborate, Status status) {
+    public Member(String preferredId, String name, String emailAddress, String contactNumber, String address, String currentLocation, ArrayList<String> imageUrls, ArrayList<String> portfolioUrls, ArrayList<String> skills, ArrayList<String> interests, AgeGroup ageGroup, ArrayList<String> languagePreference, EngagementPreference engagemnetPreference, WorkingOption workingPreference, Remuneration remunerationPreference, ArrayList<String> locationPreference, Recommendation recommendation, SpecialNeed specialneed, boolean openToCollaborate, Status status) {
         this.preferredId = preferredId;
         this.name = name;
         this.emailAddress = emailAddress;
         this.contactNumber = contactNumber;
         this.address = address;
         this.currentLocation = currentLocation;
+        this.imageUrls = imageUrls;
+        this.portfolioUrls = portfolioUrls;
         this.skills = skills;
         this.interests = interests;
         this.ageGroup = ageGroup;
@@ -64,6 +68,9 @@ public class Member {
         Date date = new Date();
         this.registeredOn = new Timestamp(date.getTime());
     }
+
+
+
 
     public int getId() {
         return id;
@@ -225,6 +232,22 @@ public class Member {
         this.registeredOn = registeredOn;
     }
 
+    public ArrayList<String> getImageUrls() {
+        return imageUrls;
+    }
+
+    public void setImageUrls(ArrayList<String> imageUrls) {
+        this.imageUrls = imageUrls;
+    }
+
+    public ArrayList<String> getPortfolioUrls() {
+        return portfolioUrls;
+    }
+
+    public void setPortfolioUrls(ArrayList<String> portfolioUrls) {
+        this.portfolioUrls = portfolioUrls;
+    }
+
     @Override
     public String toString() {
         return "Member{" +
@@ -235,6 +258,8 @@ public class Member {
                 ", contactNumber='" + contactNumber + '\'' +
                 ", address='" + address + '\'' +
                 ", currentLocation='" + currentLocation + '\'' +
+                ", imageUrls=" + imageUrls +
+                ", portfolioUrls=" + portfolioUrls +
                 ", skills=" + skills +
                 ", interests=" + interests +
                 ", ageGroup=" + ageGroup +

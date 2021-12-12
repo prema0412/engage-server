@@ -2,7 +2,7 @@ package com.company.engage.Models;
 
 public enum WorkingOption {
 
-    HOME,
+    REMOTE,
     SITE,
     OFFICE
 }
