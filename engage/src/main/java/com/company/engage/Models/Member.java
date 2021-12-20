@@ -19,16 +19,16 @@ public class Member {
         private String currentLocation;
         private ArrayList<String> imageUrls;
         private ArrayList<String> portfolioUrls;
-      //  @OneToMany
-       // @JoinColumn(name = "Member_ID")
-       // private List<Skill> skills;
-        private ArrayList<String> skills;
+        @OneToMany
+        @JoinColumn(name = "member_id")
+        private List<Skill> skills;
+       // private ArrayList<String> skills;
         private ArrayList<String> interests;
         private AgeGroup ageGroup;   // JUNIOR YOUNGADULT MIDDEL SENIOR
-       // @OneToMany(cascade=CascadeType.ALL)
-       // @JoinColumn(name = "member_id")
-       // private ArrayList<LanguagePreference> languagePreference;
-        private ArrayList<String> languagePreference;
+         @OneToMany
+         @JoinColumn(name = "member_id")
+         private List<LanguagePreference> languagePreference;
+        //private ArrayList<String> languagePreference;
         private EngagementPreference engagemnetPreference; // FULLTIME PARTTIME WEEKDAYS WEEKENDS DAILY WEEKLY MONTHLY QUARTERLY YEARLY
         private WorkingOption workingPreference; // REMOTE ONSITE OFFICE
         private Remuneration remunerationPreference; // PAID PROBONO
@@ -44,7 +44,7 @@ public class Member {
             this.registeredOn = new Timestamp(date.getTime());
     }
 
-    public Member(String preferredId, String name, String emailAddress, String contactNumber, String address, String currentLocation, ArrayList<String> imageUrls, ArrayList<String> portfolioUrls, ArrayList<String> skills, ArrayList<String> interests, AgeGroup ageGroup, ArrayList<String> languagePreference, EngagementPreference engagemnetPreference, WorkingOption workingPreference, Remuneration remunerationPreference, ArrayList<String> locationPreference, Recommendation recommendation, SpecialNeed specialneed, boolean openToCollaborate, Status status) {
+    public Member(String preferredId, String name, String emailAddress, String contactNumber, String address, String currentLocation, ArrayList<String> imageUrls, ArrayList<String> portfolioUrls, List<Skill> skills, ArrayList<String> interests, AgeGroup ageGroup, List<LanguagePreference> languagePreference, EngagementPreference engagemnetPreference, WorkingOption workingPreference, Remuneration remunerationPreference, ArrayList<String> locationPreference, Recommendation recommendation, SpecialNeed specialneed, boolean openToCollaborate, Status status) {
         this.preferredId = preferredId;
         this.name = name;
         this.emailAddress = emailAddress;
@@ -128,11 +128,11 @@ public class Member {
         this.currentLocation = currentLocation;
     }
 
-    public ArrayList<String> getSkills() {
+    public List<Skill> getSkills() {
         return skills;
     }
 
-    public void setSkills(ArrayList<String> skills) {
+    public void setSkills(List<Skill> skills) {
         this.skills = skills;
     }
 
@@ -152,11 +152,11 @@ public class Member {
         this.ageGroup = ageGroup;
     }
 
-    public ArrayList<String> getLanguagePreference() {
+    public List<LanguagePreference> getLanguagePreference() {
         return languagePreference;
     }
 
-    public void setLanguagePreference(ArrayList<String> languagePreference) {
+    public void setLanguagePreference(List<LanguagePreference> languagePreference) {
         this.languagePreference = languagePreference;
     }
 

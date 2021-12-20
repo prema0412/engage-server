@@ -1,5 +1,8 @@
 package com.company.engage.Models;
 
+import javax.persistence.Entity;
+
+
 public enum EngagementPreference {
 
     FULLTIME,
@@ -12,6 +15,9 @@ public enum EngagementPreference {
     MONTHLY,
     QUARTERLY,
     YEARLY,
+    ONEOF,
+    PROJECT,
+    EVENT
 
 
 }

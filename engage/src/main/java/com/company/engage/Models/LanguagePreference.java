@@ -2,19 +2,19 @@ package com.company.engage.Models;
 
 import javax.persistence.*;
 
-//@Entity
+@Entity
 
 public class LanguagePreference {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int id;
 
-    //@ManyToOne
-  //  @JoinColumn(name="member-id", insertable = false, nullable = false)
+    @ManyToOne
+    @JoinColumn(name="member_id")
 
-  //  private Member member;
+    private Member member;
     private String preferredLanguage;
     private Proficiency proficiency;
 
@@ -22,7 +22,7 @@ public class LanguagePreference {
     }
 
     public LanguagePreference(Member member, String preferredLanguage, Proficiency proficiency) {
-       // this.member = member;
+        this.member = member;
         this.preferredLanguage = preferredLanguage;
         this.proficiency = proficiency;
     }
@@ -35,13 +35,13 @@ public class LanguagePreference {
         this.id = id;
     }
 
-//    public Member getMember() {
-//        return member;
-//    }
+    public Member getMember() {
+        return member;
+    }
 
-//    public void setMember(Member member) {
-//        this.member = member;
-//    }
+    public void setMember(Member member) {
+        this.member = member;
+    }
 
     public String getPreferredLanguage() {
         return preferredLanguage;

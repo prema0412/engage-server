@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http//localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000")
 
 public class EngagementController {
 
@@ -19,6 +19,7 @@ public class EngagementController {
 
     @PostMapping("/engagement")
     public ResponseEntity<String> addEngagement(@RequestBody Engagement engagement) {
+        System.out.println("engagement"+engagement);
         repository.save(engagement);
         return ResponseEntity.status(HttpStatus.CREATED).body("Engagement Created " + engagement.getTitle());
     }

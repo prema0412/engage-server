@@ -2,16 +2,17 @@ package com.company.engage.Models;
 
 import javax.persistence.*;
 
-//@Entity
+@Entity
 
 public class Skill {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-  //  @ManyToOne
-   // @JoinColumn(name="member-id", insertable = false, nullable = false)
-  //  private Member member;
+    @ManyToOne
+    @JoinColumn(name="member_id")
+
+    private Member member;
     private String skill;
     private Proficiency proficiency;
 
@@ -19,7 +20,7 @@ public class Skill {
     }
 
     public Skill(Member member, String skill, Proficiency proficiency) {
-       // this.member = member;
+        this.member = member;
         this.skill = skill;
         this.proficiency = proficiency;
     }
@@ -32,13 +33,13 @@ public class Skill {
         this.id = id;
     }
 
-//    public Member getMember() {
-//        return member;
-//    }
-//
-//    public void setMember(Member member) {
-//        this.member = member;
-//    }
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
 
     public String getSkill() {
         return skill;
