@@ -7,15 +7,18 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 
 public class EngagementController {
 
     @Autowired
     EngagementRepository repository;
+
 
     @PostMapping("/engagement")
     public ResponseEntity<String> addEngagement(@RequestBody Engagement engagement) {
@@ -26,7 +29,22 @@ public class EngagementController {
 
     @GetMapping("engagements")
     public ResponseEntity<List<Engagement>> getEngagements(){
-        return ResponseEntity.status(HttpStatus.OK).body(repository.findAll());
+        return ResponseEntity.status(HttpStatus.OK).body(repository.findOpenEngagements());
+    }
+
+    @GetMapping("categories")
+    public ResponseEntity<List<String>> getCategories(){
+        return ResponseEntity.status(HttpStatus.OK).body(repository.findAllCategories());
+    }
+
+    @PatchMapping("/engagement/{id}")
+    @Transactional
+    public ResponseEntity<String> reportEngagement(@PathVariable int id) {
+
+        System.out.println("in patch");
+
+        repository.reportEngagement(id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body("Engagement Reported ");
     }
 
 }

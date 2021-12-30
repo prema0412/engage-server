@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 public enum WorkingOption {
 
     REMOTE,
-    SITE,
+    ONSITE,
     OFFICE,
     DELIVERY
 }
