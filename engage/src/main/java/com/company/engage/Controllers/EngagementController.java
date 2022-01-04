@@ -37,7 +37,17 @@ public class EngagementController {
         return ResponseEntity.status(HttpStatus.OK).body(repository.findAllCategories());
     }
 
-    @PatchMapping("/engagement/{id}")
+    @GetMapping("locations")
+    public ResponseEntity<List<String>> getLocations(){
+        return ResponseEntity.status(HttpStatus.OK).body(repository.findAllLocations());
+    }
+
+    @GetMapping("workOptions")
+    public ResponseEntity<List<String>> getWorkOptions(){
+        return ResponseEntity.status(HttpStatus.OK).body(repository.findAllWorkOptions());
+    }
+
+    @PatchMapping("/engagement/{id}/report")
     @Transactional
     public ResponseEntity<String> reportEngagement(@PathVariable int id) {
 
