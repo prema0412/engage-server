@@ -26,11 +26,11 @@ public interface EngagementRepository extends JpaRepository<Engagement, String> 
     List<String> findAllWorkOptions();
 
 
-    @Query("SELECT e FROM Engagement e WHERE e.status = '0'")
+    @Query("SELECT e FROM Engagement e WHERE e.status = 'OPEN'")
     List<Engagement> findOpenEngagements();
 
     @Modifying(clearAutomatically = true)
-    @Query("UPDATE Engagement SET  status = 4 WHERE id = :id")
+    @Query("UPDATE Engagement SET  status = 'REPORTED' WHERE id = :id")
 
     void reportEngagement(@Param("id") int id);
 }

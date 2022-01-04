@@ -1,9 +1,6 @@
 package com.company.engage.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,8 +12,10 @@ public class Engagement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String preferredId;
+    @Enumerated(EnumType.STRING)
     private ProviderType providerType;
     private String category;
+    @Enumerated(EnumType.STRING)
     private EngagementPreference EngagementType; // FULLTIME PARTTIME WEEKDAYS WEEKENDS DAILY WEEKLY MONTHLY QUARTERLY YEARLY
     private String title;
     private String description;
@@ -35,15 +34,21 @@ public class Engagement {
     private String openPositions;
     private int teamSize;
     private ArrayList<String> requiredSkills;
+    @Enumerated(EnumType.STRING)
     private Proficiency expectedProficiency;
+    @Enumerated(EnumType.STRING)
     private AgeGroup ageGroup;
     private ArrayList<String> languagePreference;
+    @Enumerated(EnumType.STRING)
     private WorkingOption workingPreference; // REMOTE ONSITE OFFICE DELIVERY
+    @Enumerated(EnumType.STRING)
     private Remuneration remunerationPreference; // PAID PROBONO
     private ArrayList<String> locationPreference;
+    @Enumerated(EnumType.STRING)
     private Recommendation recommendation;
     private SpecialNeed specialneed; // VISUAL AUDITORY DYSLEXIA AUTISM SPASTIC MR
-    private Status status; // OPEN BOOKED CANCELLED REPORTED
+    @Enumerated(EnumType.STRING)
+    private Status status; // OPEN DORMANT ENGAGED REPORTED CANCELLED
     private String additionalInformation;
     private Timestamp createdOn;
     private String createdBY;

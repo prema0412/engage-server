@@ -57,4 +57,14 @@ public class EngagementController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body("Engagement Reported ");
     }
 
+//    @PatchMapping("/engagement/{id}/{action}")
+//    @Transactional
+//    public ResponseEntity<String> reportEngagement(@PathVariable int id, @PathVariable String action) {
+//
+//        System.out.println("in patch");
+//
+//        repository.reportEngagement(id);
+//        return ResponseEntity.status(HttpStatus.ACCEPTED).body("Engagement Reported ");
+//    }
+
 }
