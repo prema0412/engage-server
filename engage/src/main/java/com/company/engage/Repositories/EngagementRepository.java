@@ -19,6 +19,13 @@ public interface EngagementRepository extends JpaRepository<Engagement, String> 
     @Query("SELECT DISTINCT category FROM Engagement")
     List<String> findAllCategories();
 
+    @Query("SELECT DISTINCT location FROM Engagement")
+    List<String> findAllLocations();
+
+    @Query("SELECT DISTINCT workingPreference FROM Engagement")
+    List<String> findAllWorkOptions();
+
+
     @Query("SELECT e FROM Engagement e WHERE e.status = '0'")
     List<Engagement> findOpenEngagements();
 

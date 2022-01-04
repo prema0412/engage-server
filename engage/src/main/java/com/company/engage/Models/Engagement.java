@@ -38,7 +38,7 @@ public class Engagement {
     private Proficiency expectedProficiency;
     private AgeGroup ageGroup;
     private ArrayList<String> languagePreference;
-    private WorkingOption workingPreference; // REMOTE ONSITE OFFICE
+    private WorkingOption workingPreference; // REMOTE ONSITE OFFICE DELIVERY
     private Remuneration remunerationPreference; // PAID PROBONO
     private ArrayList<String> locationPreference;
     private Recommendation recommendation;
