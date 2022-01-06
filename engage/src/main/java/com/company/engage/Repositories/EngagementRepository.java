@@ -1,6 +1,7 @@
 package com.company.engage.Repositories;
 
 import com.company.engage.Models.Engagement;
+import com.company.engage.Models.Status;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -30,7 +31,12 @@ public interface EngagementRepository extends JpaRepository<Engagement, String> 
     List<Engagement> findOpenEngagements();
 
     @Modifying(clearAutomatically = true)
-    @Query("UPDATE Engagement SET  status = 'REPORTED' WHERE id = :id")
+    @Query("UPDATE Engagement SET status = :newStatus WHERE id = :id")
+
+    void updateEngagementStatus(@Param("id") int id, @Param("newStatus") Status newStatus);
+
+    @Modifying(clearAutomatically = true)
+    @Query("UPDATE Engagement SET status = REPORTED WHERE id = :id")
 
     void reportEngagement(@Param("id") int id);
 }
